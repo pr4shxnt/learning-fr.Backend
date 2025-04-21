@@ -58,6 +58,12 @@ app.get('/api/lol', authMiddleware, async (req, res) => {
 
 
 // listen
-app.listen(process.env.PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${process.env.PORT}`);
-});
+if (process.env.NODE_ENV !== "production") {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running at http://localhost:${PORT}/`);
+    });
+  }
+
+  
+  module.exports = app;
