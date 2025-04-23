@@ -42,9 +42,7 @@ mongoDBconnect();
 
 // auth route
 app.use('/api', authRoutes); 
-
-
-
+app.use('/api/auth', authMiddleware , require('./routes/authRoutes'))
 
 
 // default route

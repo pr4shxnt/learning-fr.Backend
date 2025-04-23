@@ -19,6 +19,9 @@ exports.registerUser = async (req, res) => {
   try {
 
 
+    console.log(req.body)
+
+
     // 1. Verify OTP
     const storedOtp = await redisClient.get(email);
 
@@ -82,7 +85,7 @@ exports.registerUser = async (req, res) => {
 
 
 
-    
+
   } catch (error) {
     console.error('Register Error:', error);
     res.status(500).json({ message: 'Internal server error' });
